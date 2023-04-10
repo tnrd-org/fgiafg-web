@@ -9,10 +9,10 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 
 WORKDIR /src
 
-COPY FGIAFG.Scraper.Web/FGIAFG.Scraper.Web.csproj ./
+COPY FGIAFG.Web/FGIAFG.Web.csproj ./
 RUN dotnet restore
 
-COPY FGIAFG.Scraper.Web/ .
+COPY FGIAFG.Web/ .
 RUN dotnet build -c Release -o /app/build
 
 FROM build AS publish
@@ -24,4 +24,4 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 
-ENTRYPOINT ["dotnet", "FGIAFG.Scraper.Web.dll"]
+ENTRYPOINT ["dotnet", "FGIAFG.Web.dll"]
