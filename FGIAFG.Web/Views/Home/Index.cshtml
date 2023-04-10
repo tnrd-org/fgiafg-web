@@ -1,0 +1,14 @@
+﻿@using FGIAFG.Web.Models
+@model FGIAFG.Web.Models.PlatformGamesCollection
+
+<div>
+    <p class="text-center">
+        <img class="rounded-circle img-fluid" src="img/logo.jpg" width="300" height="800"/>
+    </p>
+    <p class="text-center text-light" style="font-size: 40px;">Get your free games while they're hot</p>
+</div>
+
+@foreach (PlatformGames platformGames in Model.PlatformGames.OrderBy(x => x.Title))
+{
+    await Html.RenderPartialAsync("PlatformGames", platformGames);
+}

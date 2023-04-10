@@ -1,0 +1,27 @@
+@model FGIAFG.Web.Models.Game
+
+<div class="col p-3">
+    <div class="card game-card">
+        <img class="card-img-top w-100 d-block" src="@Model.ImageUrl" alt="game cover image">
+        <div class="card-body">
+            <h4 class="card-title">@Model.Title</h4>
+            @if (Model.StartDate.HasValue && Model.EndDate.HasValue)
+            {
+                <p class="card-text">Available @Model.StartDate.Value.ToShortDateString() to @Model.EndDate.Value.ToShortDateString()</p>
+            }
+            else if (Model.StartDate.HasValue && !Model.EndDate.HasValue)
+            {
+                <p class="card-text">Available starting @Model.StartDate.Value.ToShortDateString()</p>
+            }
+            else if (!Model.StartDate.HasValue && Model.EndDate.HasValue)
+            {
+                <p class="card-text">Available until @Model.EndDate.Value.ToShortDateString()</p>
+            }
+            else
+            {
+                <p class="card-text">Available now!</p>
+            }
+            <a class="btn btn-primary" role="button" target="_blank" href="@Model.Url">Visit</a>
+        </div>
+    </div>
+</div>

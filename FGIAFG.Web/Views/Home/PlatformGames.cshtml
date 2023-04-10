@@ -1,0 +1,12 @@
+@using FGIAFG.Web.Models
+@model FGIAFG.Web.Models.PlatformGames
+
+<div class="container p-3">
+    <h1 class="text-light">@Model.Title</h1>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 row-cols-xxl-3">
+        @foreach (Game freeGame in @Model.Games.OrderBy(x=>x.EndDate).ThenBy(x=>x.Title))
+        {
+            await Html.RenderPartialAsync("Game", freeGame);
+        }
+    </div>
+</div>
