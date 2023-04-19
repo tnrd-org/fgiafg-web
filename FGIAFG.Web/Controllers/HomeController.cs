@@ -37,7 +37,7 @@ namespace FGIAFG.Web.Controllers
                 GetGamesForPlatform("gog", "Good Old Games"),
                 GetGamesForPlatform("playstation", "PlayStation"),
                 GetGamesForPlatform("prime", "Prime Gaming"),
-                // GetGamesForPlatform("steam"),
+                GetGamesForPlatform("steam", "Steam"),
                 GetGamesForPlatform("xbox", "Xbox Games With Gold"),
             };
 
